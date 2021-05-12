@@ -1,6 +1,6 @@
 import {OVERFLOW_WRAP} from '../property-descriptors/overflow-wrap';
 import {CSSParsedDeclaration} from '../index';
-import {fromCodePoint, LineBreaker, toCodePoints} from 'css-line-break';
+import {fromCodePoint, LineBreaker, toCodePoints} from '@doltech/css-line-break';
 import {Bounds, parseBounds} from './bounds';
 import {FEATURES} from '../../core/features';
 
