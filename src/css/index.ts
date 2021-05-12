@@ -260,6 +260,9 @@ export class CSSParsedCounterDeclaration {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const parse = (descriptor: CSSPropertyDescriptor<any>, style?: string | null) => {
+    if (!descriptor) {
+        throw new Error("Descriptor cannot be null");
+    }
     const tokenizer = new Tokenizer();
     const value = style !== null && typeof style !== 'undefined' ? style.toString() : descriptor.initialValue;
     tokenizer.write(value);
@@ -290,6 +293,6 @@ const parse = (descriptor: CSSPropertyDescriptor<any>, style?: string | null) =>
                     return isLengthPercentage(value) ? value : ZERO_LENGTH;
             }
     }
-
+    //@ts-ignore
     throw new Error(`Attempting to parse unsupported css format type ${descriptor.format}`);
 };
